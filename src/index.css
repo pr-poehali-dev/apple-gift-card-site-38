@@ -1,6 +1,5 @@
-
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -101,17 +100,38 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-family:
+      "SF Pro Text",
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family:
+      "SF Pro Display",
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      sans-serif;
   }
 }
 
 /* Плавная прокрутка для всего сайта */
 html {
   scroll-behavior: smooth;
+}
+
+/* Блокировка прокрутки для модальных окон */
+body.overflow-hidden {
+  overflow: hidden;
+  padding-right: 15px; /* Компенсация ширины скроллбара для предотвращения смещения контента */
 }
 
 /* Анимации в стиле Apple */

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,10 +6,14 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Separator } from "@/components/ui/separator";
 import Icon from "@/components/ui/icon";
 import { Card, CardContent } from "@/components/ui/card";
-import { GiftCard } from "@/types/giftCard";
 
 interface CheckoutFormProps {
-  selectedCard: GiftCard | null;
+  selectedCard: {
+    id: number;
+    nominal: number;
+    image: string;
+    description: string;
+  } | null;
   onClose: () => void;
   onSuccess: () => void;
 }
@@ -28,6 +32,14 @@ const CheckoutForm = ({
     deliveryMethod: "email",
     paymentMethod: "card",
   });
+
+  // Блокировка прокрутки при открытии модального окна
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
